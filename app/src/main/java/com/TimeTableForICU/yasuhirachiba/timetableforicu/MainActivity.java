@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -47,36 +48,36 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    openHelper helper;
-    SQLiteDatabase db;
-    db_manipulator DBm;
+    private openHelper helper;
+    private SQLiteDatabase db;
+    private db_manipulator DBm;
 
-    final int REQUEST_CODE_FOR_SETTINGS_TABLE=20;
+    private final int REQUEST_CODE_FOR_SETTINGS_TABLE=20;
 
-    int btnList[]={R.id.button11,R.id.button12,R.id.button13,R.id.button14,R.id.button15,R.id.button16,R.id.button21,R.id.button22,R.id.button23,R.id.button24,R.id.button25,R.id.button26,R.id.button31,R.id.button32,R.id.button33,R.id.button34,R.id.button35,R.id.button36,R.id.button41,R.id.button42,R.id.button43,R.id.button44,R.id.button45,R.id.button46,R.id.button51,R.id.button52,R.id.button53,R.id.button54,R.id.button55,R.id.button56,R.id.button61,R.id.button62,R.id.button63,R.id.button64,R.id.button65,R.id.button66,R.id.button71,R.id.button72,R.id.button73,R.id.button74,R.id.button75,R.id.button76,R.id.button81,R.id.button82,R.id.button83,R.id.button84,R.id.button85,R.id.button86};
-    String idList[]={"11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35","36","41","42","43","44","45","46","51","52","53","54","55","56","61","62","63","64","65","66","71","72","73","74","75","76","81","82","83","84","85","86"};
-    int L4MarginList[]={R.id.L4_margin1,R.id.L4_margin2,R.id.L4_margin3,R.id.L4_margin4,R.id.L4_margin5,R.id.L4_margin6};
-    int weekList[]={R.id.week,R.id.week1,R.id.week2,R.id.week3,R.id.week4,R.id.week5,R.id.week6};
-    int periodLiist[]={R.id.period1,R.id.period2,R.id.period3,R.id.period4,R.id.period5,R.id.period6,R.id.period7,R.id.period8};
-    int frameLayoutList[]={R.id.frameLayout1,R.id.frameLayout2,R.id.frameLayout3,R.id.frameLayout5,R.id.frameLayout6,R.id.frameLayout7,R.id.frameLayout8,R.id.frameLayout9};
-    int timeTvList[]={R.id.time_tv1,R.id.time_tv2,R.id.time_tv3,R.id.time_tv4,R.id.time_tv5,R.id.time_tv6,R.id.time_tv9,R.id.time_tv10,R.id.time_tv11,R.id.time_tv12,R.id.time_tv13,R.id.time_tv14,R.id.time_tv15,R.id.time_tv16,R.id.time_tv17,R.id.time_tv18};
-    int period6[]={R.id.frameLayout7,R.id.button61,R.id.button62,R.id.button63,R.id.button64,R.id.button65,R.id.button66};
-    int period7[]={R.id.frameLayout8,R.id.button71,R.id.button72,R.id.button73,R.id.button74,R.id.button75,R.id.button76};
-    int period8[]={R.id.frameLayout9,R.id.button81,R.id.button82,R.id.button83,R.id.button84,R.id.button85,R.id.button86};
+    private final int[] btnList={R.id.button11,R.id.button12,R.id.button13,R.id.button14,R.id.button15,R.id.button16,R.id.button21,R.id.button22,R.id.button23,R.id.button24,R.id.button25,R.id.button26,R.id.button31,R.id.button32,R.id.button33,R.id.button34,R.id.button35,R.id.button36,R.id.button41,R.id.button42,R.id.button43,R.id.button44,R.id.button45,R.id.button46,R.id.button51,R.id.button52,R.id.button53,R.id.button54,R.id.button55,R.id.button56,R.id.button61,R.id.button62,R.id.button63,R.id.button64,R.id.button65,R.id.button66,R.id.button71,R.id.button72,R.id.button73,R.id.button74,R.id.button75,R.id.button76,R.id.button81,R.id.button82,R.id.button83,R.id.button84,R.id.button85,R.id.button86};
+    private final String[] idList={"11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35","36","41","42","43","44","45","46","51","52","53","54","55","56","61","62","63","64","65","66","71","72","73","74","75","76","81","82","83","84","85","86"};
+    private final int[] L4MarginList={R.id.L4_margin1,R.id.L4_margin2,R.id.L4_margin3,R.id.L4_margin4,R.id.L4_margin5,R.id.L4_margin6};
+    private final int[] weekList={R.id.week,R.id.week1,R.id.week2,R.id.week3,R.id.week4,R.id.week5,R.id.week6};
+    private final int[] periodLiist={R.id.period1,R.id.period2,R.id.period3,R.id.period4,R.id.period5,R.id.period6,R.id.period7,R.id.period8};
+    private final int[] frameLayoutList={R.id.frameLayout1,R.id.frameLayout2,R.id.frameLayout3,R.id.frameLayout5,R.id.frameLayout6,R.id.frameLayout7,R.id.frameLayout8,R.id.frameLayout9};
+    private final int[] timeTvList={R.id.time_tv1,R.id.time_tv2,R.id.time_tv3,R.id.time_tv4,R.id.time_tv5,R.id.time_tv6,R.id.time_tv9,R.id.time_tv10,R.id.time_tv11,R.id.time_tv12,R.id.time_tv13,R.id.time_tv14,R.id.time_tv15,R.id.time_tv16,R.id.time_tv17,R.id.time_tv18};
+    private final int[] period6={R.id.frameLayout7,R.id.button61,R.id.button62,R.id.button63,R.id.button64,R.id.button65,R.id.button66};
+    private final int[] period7={R.id.frameLayout8,R.id.button71,R.id.button72,R.id.button73,R.id.button74,R.id.button75,R.id.button76};
+    private final int[] period8={R.id.frameLayout9,R.id.button81,R.id.button82,R.id.button83,R.id.button84,R.id.button85,R.id.button86};
 
 
 
-    Button btn[]=new Button[btnList.length];
+    private final Button[] btn=new Button[btnList.length];
     int sizeofview_height;
 
-    ArrayList<Integer> sizeofView=new ArrayList<Integer>();
-    table_info_entity tableInfoEntity =new table_info_entity();
-    SharedPreferences prefer;
+    ArrayList<Integer> sizeofView= new ArrayList<>();
+    private final table_info_entity tableInfoEntity =new table_info_entity();
+    private SharedPreferences prefer;
 
-    TextView tvForBottom;
+    private TextView tvForBottom;
 
     boolean TableCreated=false;
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
 
     @Override
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity
 
 
         Spinner spinnerForHeader=(Spinner)headerView.findViewById(R.id.nav_header_spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
@@ -246,7 +247,7 @@ public class MainActivity extends AppCompatActivity
                     editor.putFloat(VariablesDef.TEXT_SIZE_FOR_TIME,textsize);
                     editor.putFloat(VariablesDef.TEXT_SIZE_FOR_PERIOD,textsize1);
 
-                    editor.commit();
+                    editor.apply();
 
                     defaultSharedPreferences.edit().putBoolean("initialize",false).apply();
                     defaultSharedPreferences.edit().putBoolean("CreateTable",true).apply();
@@ -295,17 +296,9 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
-    @Override
-    protected void onStop(){
-        super.onStop();
 
 
-    }
-
-
-
-
-    public class testClickL implements View.OnClickListener{
+    class testClickL implements View.OnClickListener{
         @Override
         public void onClick(View view) {
             Intent it_add=new Intent(getApplicationContext(),add_data.class);
@@ -377,7 +370,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -421,20 +414,9 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
-
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState){
-        super.onPostCreate(savedInstanceState);
-
-    }
-
-
-
     //タイトル、ろん４のデータ等々読み込んで時間割に表示するロジック------------------------------------------------------------
 
-    public void setTable(int height){
+    private void setTable(int height){
 
         int colorForWeekAndPeriodId = getResources().getColor(R.color.forWeekAndPeriod);
         db_entity entity;
@@ -567,11 +549,11 @@ public class MainActivity extends AppCompatActivity
             }
 
         }
-        for(int i=0;i<L4MarginList.length;i++){
-            GradientDrawable bgShape2=new GradientDrawable();
-            TextView tvM=(TextView)findViewById(L4MarginList[i]);
+        for (int aL4MarginList : L4MarginList) {
+            GradientDrawable bgShape2 = new GradientDrawable();
+            TextView tvM = (TextView) findViewById(aL4MarginList);
             bgShape2.setColor(Color.parseColor("#a4a3a3"));
-            bgShape2.setStroke(1,getResources().getColor(R.color.forStroke));
+            bgShape2.setStroke(1, getResources().getColor(R.color.forStroke));
             tvM.setBackground(bgShape2);
             tvM.setHeight(L4MHeight);
         }
@@ -589,24 +571,23 @@ public class MainActivity extends AppCompatActivity
         flForL4.setBackground(bgShape2);
 
 
-
-        for(int i=0;i<periodLiist.length;i++){
-            TextView tv1=(TextView)findViewById(periodLiist[i]);
+        for (int aPeriodLiist : periodLiist) {
+            TextView tv1 = (TextView) findViewById(aPeriodLiist);
             tv1.setTextSize(textsize1);
 
         }
-        for(int i=0;i<frameLayoutList.length;i++){
-            FrameLayout frame=(FrameLayout)findViewById(frameLayoutList[i]);
+        for (int aFrameLayoutList : frameLayoutList) {
+            FrameLayout frame = (FrameLayout) findViewById(aFrameLayoutList);
             frame.setMinimumHeight(btHeight);
-            GradientDrawable bgShape3=new GradientDrawable();
+            GradientDrawable bgShape3 = new GradientDrawable();
             // bgShape.setColor(Color.parseColor("#ffffff"));
             bgShape3.setColor(colorForWeekAndPeriodId);
-            bgShape3.setStroke(1,getResources().getColor(R.color.forStroke));
+            bgShape3.setStroke(1, getResources().getColor(R.color.forStroke));
             frame.setBackground(bgShape3);
         }
-        for(int i=0;i<timeTvList.length;i++){
-            TextView timeTv=(TextView)findViewById(timeTvList[i]);
-            timeTv.setTextSize(textsize-2);
+        for (int aTimeTvList : timeTvList) {
+            TextView timeTv = (TextView) findViewById(aTimeTvList);
+            timeTv.setTextSize(textsize - 2);
         }
 
 
@@ -616,7 +597,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        ArrayList<String> exceptList=new ArrayList<String>();
+        ArrayList<String> exceptList= new ArrayList<>();
         int fontsize=tableSettingsEntity.getFontsize();
         for(int i=0;i<btn.length;i++){
             btn[i] = (Button) findViewById(btnList[i]);
@@ -717,7 +698,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void setVisiblity(table_settings_entity tableSettingsEntity) {
+    private void setVisiblity(table_settings_entity tableSettingsEntity) {
         LinearLayout ll_saturday=(LinearLayout)findViewById(R.id.saturday_ll);
 
         if (tableSettingsEntity.getSaturday() == false) {

@@ -54,62 +54,62 @@ import me.priyesh.chroma.ColorSelectListener;
 
 public class add_data extends AppCompatActivity {
 
-    openHelper helper;
-    SQLiteDatabase db;
-    db_manipulator DBm;
-    db_manipulatorForClassInfo DBmcl;
+    private openHelper helper;
+    private SQLiteDatabase db;
+    private db_manipulator DBm;
+    private db_manipulatorForClassInfo DBmcl;
 
 
-    EditText et_add_data_cstitle;
-    EditText et_add_data_classroom;
-    EditText et_add_data_teacher;
-    Spinner sp_period;
-    Spinner sp_week;
-    BootstrapButton btn_schedule;
-    BootstrapButton btn_more;
-    BootstrapButton btn_ok;
+    private EditText et_add_data_cstitle;
+    private EditText et_add_data_classroom;
+    private EditText et_add_data_teacher;
+    private Spinner sp_period;
+    private Spinner sp_week;
+    private BootstrapButton btn_schedule;
+    private BootstrapButton btn_more;
+    private BootstrapButton btn_ok;
 
-    Button btnforColorChoice;
-    Button btnforColorChoice_color;
+    private Button btnforColorChoice;
+    private Button btnforColorChoice_color;
 
     /*    ArrayList<BootstrapButton> schedule_list_button=new ArrayList<BootstrapButton>();
         ArrayList<TextView> schedule_list_tvForMargin=new ArrayList<TextView>();
         ArrayList<LinearLayout>ll_more_list=new ArrayList<LinearLayout>();
         ArrayList<Integer> schedule_list=new ArrayList<Integer>();
         */
-    ArrayList<add_data_schedules> schedulesArrayList=new ArrayList<add_data_schedules>();
-    SharedPreferences prefs;
-    Gson gson;
-    table_info_entity tableInfoEntity;
-    table_settings_entity tableSettingsEntity;
+    private final ArrayList<add_data_schedules> schedulesArrayList= new ArrayList<>();
+    private SharedPreferences prefs;
+    private Gson gson;
+    private table_info_entity tableInfoEntity;
+    private table_settings_entity tableSettingsEntity;
 
   //  LinearLayout ll;
-    LinearLayout ll_more;
-    LinearLayout ll_more_main;
+  private LinearLayout ll_more;
+    private LinearLayout ll_more_main;
 
 
-    ExpandableHeightGridView gridView;
-    add_data_gridViewAdapter gridViewAdapter;
+    private ExpandableHeightGridView gridView;
+    private add_data_gridViewAdapter gridViewAdapter;
 
     View layout;
 
-    ArrayList<db_entity_sy> entity=new ArrayList<db_entity_sy>();
-    ArrayList<String> cstitle=new ArrayList<String>();
+    private ArrayList<db_entity_sy> entity= new ArrayList<>();
+    private final ArrayList<String> cstitle= new ArrayList<>();
     int sy_id=-1;
     int scnum=0;
-    int count=0;
-    String id;
+    private int count=0;
+    private String id;
    /* String schedule_string="";*/
 
     String bgColor="";
-    String colorname="#ffffff";
+    private String colorname="#ffffff";
 
-    DisplayMetrics dm = Resources.getSystem().getDisplayMetrics();
-    float width=dm.widthPixels;
+    private final DisplayMetrics dm = Resources.getSystem().getDisplayMetrics();
+    private final float width=dm.widthPixels;
     float height=dm.heightPixels;
 
-    boolean scroll=false;
-    boolean isMoreClicked =false;
+    private boolean scroll=false;
+    private boolean isMoreClicked =false;
 
     int dateButtonCount=0;
 
@@ -269,7 +269,7 @@ public class add_data extends AppCompatActivity {
         }
 
 
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,cstitle);
+        ArrayAdapter<String> adapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cstitle);
         Spinner spinner=(Spinner)findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
         spinner.setDropDownWidth((int)width);
@@ -280,10 +280,10 @@ public class add_data extends AppCompatActivity {
     }
 
 
-    public class add_dataClickL implements View.OnClickListener{
+    class add_dataClickL implements View.OnClickListener{
 
         String period,week;
-        Intent it=new Intent();
+        final Intent it=new Intent();
 
 
         @Override
@@ -396,7 +396,7 @@ public class add_data extends AppCompatActivity {
                     if(schedulesArrayList.size()!=0){
                         btn_ok.setEnabled(false);
 
-                        ArrayList<Integer> schedule_list=new ArrayList<Integer>();
+                        ArrayList<Integer> schedule_list= new ArrayList<>();
                         for(add_data_schedules temporaly:schedulesArrayList){
                             schedule_list.add(temporaly.getSchedule());
                         }
@@ -513,7 +513,7 @@ public class add_data extends AppCompatActivity {
 
     }
 
-    public class spClickL implements android.widget.AdapterView.OnItemSelectedListener {
+    class spClickL implements android.widget.AdapterView.OnItemSelectedListener {
 
 
         @Override
@@ -566,7 +566,7 @@ public class add_data extends AppCompatActivity {
 
 
 
-        public void spinnnerSelectedLogic(final AdapterView adapterView, int i, long l){
+        void spinnnerSelectedLogic(final AdapterView adapterView, int i, long l){
 
             String item = (String) adapterView.getItemAtPosition(i);
             final int num=(int)l;

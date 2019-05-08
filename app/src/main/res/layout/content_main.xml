@@ -25,7 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ffffff"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:id="@+id/leftMargin_ll"
@@ -345,7 +346,6 @@
                         android:id="@+id/period8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0"
                         android:background="@drawable/border"
                         android:gravity="center"
                         android:text="8" />
@@ -389,7 +389,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
 
                 <Button
@@ -401,7 +401,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button31"
@@ -412,7 +412,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/L4_margin1"
@@ -434,7 +434,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button51"
@@ -445,7 +445,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button61"
@@ -456,7 +456,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
 
@@ -468,7 +468,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button81"
@@ -479,7 +479,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
 
             </LinearLayout>
@@ -510,7 +510,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button22"
@@ -521,7 +521,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button32"
@@ -532,7 +532,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/L4_margin2"
@@ -554,7 +554,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button52"
@@ -565,7 +565,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button62"
@@ -576,7 +576,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button72"
@@ -587,7 +587,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button82"
@@ -598,7 +598,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
 
             </LinearLayout>
@@ -629,7 +629,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button23"
@@ -640,7 +640,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button33"
@@ -651,7 +651,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/L4_margin3"
@@ -673,7 +673,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button53"
@@ -684,7 +684,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button63"
@@ -695,7 +695,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button73"
@@ -706,7 +706,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button83"
@@ -717,7 +717,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
 
             </LinearLayout>
@@ -748,7 +748,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button24"
@@ -759,7 +759,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button34"
@@ -770,7 +770,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/L4_margin4"
@@ -792,7 +792,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button54"
@@ -803,7 +803,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button64"
@@ -814,7 +814,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button74"
@@ -825,7 +825,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button84"
@@ -836,7 +836,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
 
             </LinearLayout>
@@ -867,7 +867,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button25"
@@ -878,7 +878,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button35"
@@ -889,7 +889,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/L4_margin5"
@@ -911,7 +911,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button55"
@@ -922,7 +922,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button65"
@@ -933,7 +933,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button75"
@@ -944,7 +944,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button85"
@@ -955,7 +955,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
 
             </LinearLayout>
@@ -987,7 +987,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button26"
@@ -998,7 +998,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button36"
@@ -1009,7 +1009,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/L4_margin6"
@@ -1031,7 +1031,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button56"
@@ -1042,7 +1042,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button66"
@@ -1053,7 +1053,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button76"
@@ -1064,7 +1064,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button86"
@@ -1075,7 +1075,7 @@
                     android:layout_weight="0"
                     android:background="@drawable/border"
                     android:text="New Button"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
 
             </LinearLayout>

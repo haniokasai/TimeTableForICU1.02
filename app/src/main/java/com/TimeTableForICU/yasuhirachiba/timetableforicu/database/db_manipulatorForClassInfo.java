@@ -16,7 +16,7 @@ public class db_manipulatorForClassInfo {
     private static final String CLCOLUMN_SY_ID="sy_id";
 
     private static final String[] CLCOLUMNS={CLCOLUMN_ID,CLCOLUMN_SY_ID};
-    SQLiteDatabase db;
+    private final SQLiteDatabase db;
 
     public db_manipulatorForClassInfo(SQLiteDatabase db){
         this.db=db;
@@ -220,7 +220,7 @@ public class db_manipulatorForClassInfo {
 
 
 
-    public int db_cl_insertPictTable(int msy_id,int Date,String Uri,String tag1,String tag2,String tag3,String tag4,String tag5){
+    public void db_cl_insertPictTable(int msy_id, int Date, String Uri, String tag1, String tag2, String tag3, String tag4, String tag5){
         ContentValues values=new ContentValues();
 
         String tableName="PT"+msy_id;
@@ -236,11 +236,8 @@ public class db_manipulatorForClassInfo {
         int id= (int) db.insert(tableName, null, values);
 
 
-        return id;
-
-
     }
-    public int db_cl_insertMemoTable(int msy_id,int Date,String Memo){
+    public void db_cl_insertMemoTable(int msy_id, int Date, String Memo){
         String tableName="MT"+msy_id;
 
         ContentValues values=new ContentValues();
@@ -250,11 +247,9 @@ public class db_manipulatorForClassInfo {
 
         int id= (int) db.insert(tableName, null, values);
 
-        return id;
-
     }
 
-    public int db_cl_insertDataTable(int msy_id,int Date){
+    public void db_cl_insertDataTable(int msy_id, int Date){
         String tableName="DT"+msy_id;
 
         ContentValues values=new ContentValues();
@@ -262,8 +257,6 @@ public class db_manipulatorForClassInfo {
         values.put("Date",Date);
 
         int id= (int) db.insert(tableName, null, values);
-
-        return id;
 
     }
 
@@ -380,7 +373,7 @@ public class db_manipulatorForClassInfo {
         Cursor cMemo = db.rawQuery("SELECT * FROM "+MemoTableName+" WHERE Date= ?;",selection);
         int data_num_memo=cMemo.getCount();
         cMemo.moveToFirst();
-        ArrayList<db_entity_memo> entity_memoList=new ArrayList<db_entity_memo>();
+        ArrayList<db_entity_memo> entity_memoList= new ArrayList<>();
         if(data_num_memo!=0) {
             do {
                 db_entity_memo entity_memo_tmp=new db_entity_memo();
@@ -414,7 +407,7 @@ public class db_manipulatorForClassInfo {
         int data_num_pict=cPict.getCount();
         cPict.moveToFirst();
 
-        ArrayList<db_entity_pict> entity_pictList=new ArrayList<db_entity_pict>();
+        ArrayList<db_entity_pict> entity_pictList= new ArrayList<>();
         if(data_num_pict!=0) {
             do {
                 db_entity_pict entity_pict_tmp=new db_entity_pict();
@@ -445,7 +438,7 @@ public class db_manipulatorForClassInfo {
 
 
     public ArrayList<db_entity_MemoPictTable> db_cl_MemoPictTable_showByMySyllabusId(int msy_id){       //日付ごとにまとめてオブジェクトに突っ込む。そのリストを返す
-        ArrayList<db_entity_MemoPictTable> entity = new ArrayList<db_entity_MemoPictTable>();
+        ArrayList<db_entity_MemoPictTable> entity = new ArrayList<>();
 
         String MemoTableName="MT"+msy_id;
         String PictTableName="PT"+msy_id;
@@ -469,7 +462,7 @@ public class db_manipulatorForClassInfo {
                 Cursor cMemo = db.rawQuery("SELECT * FROM "+MemoTableName+" WHERE Date= ?;",selection);
                 int data_num_memo=cMemo.getCount();
                 cMemo.moveToFirst();
-                ArrayList<db_entity_memo> entity_memoList=new ArrayList<db_entity_memo>();
+                ArrayList<db_entity_memo> entity_memoList= new ArrayList<>();
                 if(data_num_memo!=0) {
                     do {
                         db_entity_memo entity_memo_tmp=new db_entity_memo();
@@ -485,7 +478,7 @@ public class db_manipulatorForClassInfo {
                 Cursor cPict = db.rawQuery("SELECT * FROM "+PictTableName+" WHERE Date= ?;",selection);
                 int data_num_pict=cPict.getCount();
                 cPict.moveToFirst();
-                ArrayList<db_entity_pict> entity_pictList=new ArrayList<db_entity_pict>();
+                ArrayList<db_entity_pict> entity_pictList= new ArrayList<>();
                 if(data_num_pict!=0) {
                     do {
                         db_entity_pict entity_pict_tmp=new db_entity_pict();

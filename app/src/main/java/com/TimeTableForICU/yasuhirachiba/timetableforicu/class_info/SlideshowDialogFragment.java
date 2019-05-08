@@ -28,14 +28,13 @@ import uk.co.senab.photoview.PhotoViewAttacher;
  * Created by YasuhiraChiba on 16/08/22.
  */
 public class SlideshowDialogFragment extends DialogFragment {
-    private String TAG = SlideshowDialogFragment.class.getSimpleName();
+    private final String TAG = SlideshowDialogFragment.class.getSimpleName();
     private ArrayList<Image> images;
     private ViewPagerForSlideShow viewPager;
-    private MyViewPagerAdapter myViewPagerAdapter;
     private TextView lblCount, lblTitle, lblDate;
     private int selectedPosition = 0;
 
-    PhotoViewAttacher mAttacher;
+    private PhotoViewAttacher mAttacher;
 
 
     static SlideshowDialogFragment newInstance() {
@@ -58,7 +57,7 @@ public class SlideshowDialogFragment extends DialogFragment {
         Log.e(TAG, "position: " + selectedPosition);
         Log.e(TAG, "images size: " + images.size());
 
-        myViewPagerAdapter = new MyViewPagerAdapter();
+        MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
@@ -73,7 +72,7 @@ public class SlideshowDialogFragment extends DialogFragment {
     }
 
     //	page change listener
-    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
+    private final ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
         @Override
         public void onPageSelected(int position) {
@@ -108,11 +107,11 @@ public class SlideshowDialogFragment extends DialogFragment {
     }
 
     //	adapter
-    public class MyViewPagerAdapter extends PagerAdapter {
+    class MyViewPagerAdapter extends PagerAdapter {
 
         private LayoutInflater layoutInflater;
 
-        public MyViewPagerAdapter() {
+        MyViewPagerAdapter() {
         }
 
         @Override

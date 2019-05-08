@@ -19,13 +19,22 @@ import java.util.ArrayList;
  * Created by YasuhiraChiba on 16/08/23.
  */
 public class ColorDialog extends DialogFragment {
-    int ColorBtnId[]={R.id.c1,R.id.c2,R.id.c3,R.id.c4,R.id.c5,R.id.c6,R.id.c7,R.id.c8,R.id.c9,R.id.c10,R.id.c11,R.id.c12,R.id.c13,R.id.c14,R.id.c15,R.id.c16};
-    ArrayList<Button> ColorBtnList=new ArrayList<Button>();
-    TextView tvM1,tvM2,tvMT1,tvMT2,tvMT3,tvMT4,tvMB1,tvMB2,tvMB3,tvMB4;
+    private final int[] ColorBtnId={R.id.c1,R.id.c2,R.id.c3,R.id.c4,R.id.c5,R.id.c6,R.id.c7,R.id.c8,R.id.c9,R.id.c10,R.id.c11,R.id.c12,R.id.c13,R.id.c14,R.id.c15,R.id.c16};
+    private final ArrayList<Button> ColorBtnList= new ArrayList<>();
+    private TextView tvM1;
+    private TextView tvM2;
+    private TextView tvMT1;
+    private TextView tvMT2;
+    private TextView tvMT3;
+    private TextView tvMT4;
+    private TextView tvMB1;
+    private TextView tvMB2;
+    private TextView tvMB3;
+    private TextView tvMB4;
     private View.OnClickListener ButtonClickListener = null;
     String colorName="";
 
-    Dialog dialog;
+    private Dialog dialog;
     Long mInput = 0L;
 
 
@@ -48,8 +57,8 @@ public class ColorDialog extends DialogFragment {
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
         dialog.setContentView(view);
 
-        for(int i=0;i<ColorBtnId.length;i++){
-            Button bt=(Button)view.findViewById(ColorBtnId[i]);
+        for (int aColorBtnId : ColorBtnId) {
+            Button bt = (Button) view.findViewById(aColorBtnId);
             bt.setOnClickListener(ButtonClickListener);
             ColorBtnList.add(bt);
         }

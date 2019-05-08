@@ -29,9 +29,9 @@ import java.util.ArrayList;
  * Created by YasuhiraChiba on 16/08/23.
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private LayoutInflater mLayoutInflater;
-    private  ArrayList<db_entity_MemoPictTable> mMemoPictTableList;
-    private Context mContext;
+    private final LayoutInflater mLayoutInflater;
+    private final ArrayList<db_entity_MemoPictTable> mMemoPictTableList;
+    private final Context mContext;
 
     private ItemClickListener LongclickListener;
     private ItemClickListener clickListenerForTv;
@@ -42,12 +42,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private itemClickListenerForGallery clickLForGallery;
 
 
+    private final int msy_id;
 
-
-    private int recyclerviewPosition=0;
-    private int msy_id;
-
-    db_manipulatorForClassInfo DBmcl;
+    private final db_manipulatorForClassInfo DBmcl;
 
 
     public RecyclerViewAdapter(Context context, ArrayList<db_entity_MemoPictTable> dataList, db_manipulatorForClassInfo DBmcl,int msy_id) {
@@ -82,7 +79,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(final RecyclerViewAdapter.ViewHolder holder, int position) {
         final int date = mMemoPictTableList.get(position).getDate();
-        recyclerviewPosition=position;
+        int recyclerviewPosition = position;
 
         ArrayList<db_entity_memo> memoList=mMemoPictTableList.get(position).getMemoList();
 
@@ -274,15 +271,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        BootstrapButton btnForShowMorePict;
+        final BootstrapButton btnForShowMorePict;
         TextView memo;
-        TextView tvForDate;
-        CardView cardView;
-        RecyclerView    recyclerView;
-        LinearLayout memo_ll;
-        ExpandableHeightGridView pict_gridView;
+        final TextView tvForDate;
+        final CardView cardView;
+        final RecyclerView    recyclerView;
+        final LinearLayout memo_ll;
+        final ExpandableHeightGridView pict_gridView;
 
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             super(v);
             btnForShowMorePict=(BootstrapButton)v.findViewById(R.id.cl_info_memoRow_showMorePict_btn);
             cardView = (CardView) v.findViewById(R.id.cl_info_memo_cardView);
@@ -296,7 +293,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
 
-    public String changeDateFormat(String date){
+    private String changeDateFormat(String date){
         String result="";
 
         try{

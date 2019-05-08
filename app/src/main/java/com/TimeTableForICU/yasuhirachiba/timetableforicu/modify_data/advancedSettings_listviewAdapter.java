@@ -1,6 +1,7 @@
 package com.TimeTableForICU.yasuhirachiba.timetableforicu.modify_data;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,11 @@ import java.util.List;
 /**
  * Created by YasuhiraChiba on 16/09/02.
  */
-public class advancedSettings_listviewAdapter extends ArrayAdapter<db_entity_forAddDataModifyData_ListView> {
+class advancedSettings_listviewAdapter extends ArrayAdapter<db_entity_forAddDataModifyData_ListView> {
 
 
-    Context context;
-    LayoutInflater layoutInflater = null;
+    final Context context;
+    private LayoutInflater layoutInflater = null;
 
 
 
@@ -50,8 +51,9 @@ public class advancedSettings_listviewAdapter extends ArrayAdapter<db_entity_for
         return position;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
        /* if(convertView == null){
             convertView = layoutInflater.inflate(R.layout.add_data_more_settings_row,parent,false);
         }

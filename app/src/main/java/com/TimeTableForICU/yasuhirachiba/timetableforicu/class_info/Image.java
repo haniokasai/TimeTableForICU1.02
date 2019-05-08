@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by YasuhiraChiba on 16/08/22.
  */
-public class Image implements Serializable {
+class Image implements Serializable {
     private String name;
     private String small, medium, large;
     private String timestamp;

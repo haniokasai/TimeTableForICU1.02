@@ -1,6 +1,7 @@
 package com.TimeTableForICU.yasuhirachiba.timetableforicu.add_data;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -8,13 +9,13 @@ import java.util.StringTokenizer;
  */
 public class anyalise_schedule_string {
     public static ArrayList<Integer> anyalise_schedule_string_cut(String schedule_string){
-        ArrayList<Integer> list=new ArrayList<Integer>();
+        ArrayList<Integer> list= new ArrayList<>();
 
 
         //(1)StringTokenizerオブジェクトの生成
         StringTokenizer result = new StringTokenizer(schedule_string, " ");
 
-        if (schedule_string == "0") {
+        if (Objects.equals(schedule_string, "0")) {
 
         }
         else {
@@ -27,7 +28,7 @@ public class anyalise_schedule_string {
 
     public static ArrayList<String> anyalise_schedule_string_NumToInitial(String schedule_string){
 
-        ArrayList<String> list=new ArrayList<String>();
+        ArrayList<String> list= new ArrayList<>();
 
         StringTokenizer result = new StringTokenizer(schedule_string, " ");
         String tmp,week="";

@@ -12,7 +12,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/modify_data_root_relative"
         >
 
@@ -44,8 +44,7 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true">
+                    android:layout_alignParentLeft="true">
 
 
 
@@ -61,7 +60,7 @@
                             android:layout_height="wrap_content"
                             android:text="Course title"
                             android:id="@+id/textView1"
-                            android:textSize="20dp"
+                            android:textSize="20sp"
                             android:layout_weight="1"/>
 
                         <TextView
@@ -130,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:text="class room"
                         android:id="@+id/textView2"
-                        android:textSize="20dp" />
+                        android:textSize="20sp" />
 
                     <EditText
                         android:layout_width="match_parent"
@@ -142,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:text="teacher"
                         android:id="@+id/textView3"
-                        android:textSize="20dp" />
+                        android:textSize="20sp" />
 
                     <EditText
                         android:layout_width="match_parent"
@@ -175,7 +174,7 @@
                         android:layout_height="wrap_content"
                         android:text="schedule"
                         android:id="@+id/textView4"
-                        android:textSize="20dp" />
+                        android:textSize="20sp" />
 
 
 

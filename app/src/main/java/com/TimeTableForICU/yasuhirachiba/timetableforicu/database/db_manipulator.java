@@ -31,7 +31,7 @@ public class db_manipulator {
     private static final String CLCOLUMN_SY_ID="sy_id";
 
     private static final String[] CLCOLUMNS={CLCOLUMN_ID,CLCOLUMN_SY_ID};
-    SQLiteDatabase db;
+    private final SQLiteDatabase db;
 
 
     public db_manipulator(SQLiteDatabase db,String tableName,String syllabusName){
@@ -309,7 +309,7 @@ public class db_manipulator {
         int data_num=c.getCount();
 
         boolean a=c.moveToFirst();
-        ArrayList<db_entity_sy> entity = new ArrayList<db_entity_sy>();
+        ArrayList<db_entity_sy> entity = new ArrayList<>();
 
 
         if(data_num!=0) {
@@ -351,7 +351,7 @@ public class db_manipulator {
         int data_num=c.getCount();
 
         boolean a=c.moveToFirst();
-        ArrayList<db_entity_sy> entity = new ArrayList<db_entity_sy>();
+        ArrayList<db_entity_sy> entity = new ArrayList<>();
 
 
         if(data_num!=0) {

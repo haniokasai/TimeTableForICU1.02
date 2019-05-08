@@ -4,6 +4,7 @@ package com.TimeTableForICU.yasuhirachiba.timetableforicu.add_data;
 import android.content.Context;
 
 
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,14 +27,14 @@ import java.util.ArrayList;
  */
 public class add_data_gridViewAdapter extends ArrayAdapter<add_data_schedules> {
 
-    private int resourceId;
+    private final int resourceId;
     private class_info_ImageView_TagsEntity tagEntity;
-    private Context mContext;
+    private final Context mContext;
     private ItemClickListener itemClickListener;
     private ItemClickListener itemLongClickListener;
     private int Date;
     private int CountDateOrder;
-    private ArrayList<add_data_schedules> add_data_schedulesArrayList;
+    private final ArrayList<add_data_schedules> add_data_schedulesArrayList;
 
 
 
@@ -51,8 +52,9 @@ public class add_data_gridViewAdapter extends ArrayAdapter<add_data_schedules> {
     }
 
 
+    @NonNull
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

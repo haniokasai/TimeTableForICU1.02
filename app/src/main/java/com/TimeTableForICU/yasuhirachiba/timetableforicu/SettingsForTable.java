@@ -36,34 +36,25 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 
 public class SettingsForTable extends AppCompatActivity{
-    String idList[]={"11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35","36","41","42","43","44","45","46","51","52","53","54","55","56","61","62","63","64","65","66","71","72","73","74","75","76"};
+    private final String[] idList={"11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35","36","41","42","43","44","45","46","51","52","53","54","55","56","61","62","63","64","65","66","71","72","73","74","75","76"};
 
 
-    table_info_entity tableInfoEntity=new table_info_entity();
+    private final table_info_entity tableInfoEntity=new table_info_entity();
 
-    openHelper helper;
-    SQLiteDatabase db;
-    db_manipulator DBm;
+    private openHelper helper;
+    private SQLiteDatabase db;
+    private db_manipulator DBm;
 
-    ArrayAdapter<String> adapter;
+    private ArrayAdapter<String> adapter;
 
 
-    table_settings_entity tableSettingsEntity;
+    private table_settings_entity tableSettingsEntity;
 
-    private Switch switchSaturday;
-    private Switch switchperiod6;
-    private Switch switchperiod7;
-    private Switch switchperiod8;
-    private Switch switchSyllabusLang;
-    private Switch switchSettingsLang;
-    private Switch switchSlideText;
     private EditText etSettingsFontSize;
 
-    private BootstrapButton btn_ok;
 
-
-    SharedPreferences prefs;
-    Gson gson;
+    private SharedPreferences prefs;
+    private Gson gson;
 
     ArrayList<table_info_entity> tableSettingsEntityArrayList;
 
@@ -111,7 +102,7 @@ public class SettingsForTable extends AppCompatActivity{
 
 
 
-    public class ClickL implements View.OnClickListener{
+    class ClickL implements View.OnClickListener{
 
         @Override
         public void onClick(View v) {
@@ -189,7 +180,7 @@ public class SettingsForTable extends AppCompatActivity{
 
 
 
-    public void getSettings(){
+    private void getSettings(){
 
 
        // 保存されているjson文字列を取得
@@ -197,7 +188,7 @@ public class SettingsForTable extends AppCompatActivity{
 // json文字列を 「UserSettingクラス」のインスタンスに変換
         final ArrayList<table_info_entity> tableInfoEntityArrayList = gson.fromJson(tableSetting, new TypeToken<ArrayList<table_info_entity>>() {}.getType());
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
 
         for(table_info_entity tmp:tableInfoEntityArrayList){
             adapter.add(tmp.getTableName()+"        "+tmp.getSyllabusName());
@@ -266,7 +257,7 @@ public class SettingsForTable extends AppCompatActivity{
 
                                     db_manipulator DBmTmp=new db_manipulator(db,tableInfoEntityArrayList.get(pos).getTableName(),tableInfoEntityArrayList.get(pos).getSyllabusName());
                                     db_manipulatorForClassInfo DBmcl=new db_manipulatorForClassInfo(db);
-                                    ArrayList<Integer> msy_idList=new ArrayList<Integer>();
+                                    ArrayList<Integer> msy_idList= new ArrayList<>();
                                     for(String tmpId:idList){                                    //msy_idをtableから抽出
                                         db_entity entity=DBmTmp.db_table1_showbyId(tmpId);
                                         if(entity.getSy_id()!=-1){
@@ -282,7 +273,7 @@ public class SettingsForTable extends AppCompatActivity{
                                         }
 
                                     }
-                                    ArrayList<Integer> cl_infoList=new ArrayList<Integer>();
+                                    ArrayList<Integer> cl_infoList= new ArrayList<>();
                                     for(String tmpId:idList){                                    //classinfoIdをtableから抽出
                                         db_entity entity=DBmTmp.db_table1_showbyId(tmpId);
                                         if(entity.getClass_info_id()!=0&&entity.getClass_info_id()!=-1){
@@ -371,7 +362,7 @@ public class SettingsForTable extends AppCompatActivity{
 
 
 
-    public void initialSettings(){
+    private void initialSettings(){
 
         getSettings();
 
@@ -487,32 +478,31 @@ public class SettingsForTable extends AppCompatActivity{
         });
 
 
-
-        switchSaturday=(Switch)findViewById(R.id.switch_saturday);
+        Switch switchSaturday = (Switch) findViewById(R.id.switch_saturday);
         switchSaturday.setChecked(tableSettingsEntity.getSaturday());
         switchSaturday.setOnCheckedChangeListener(new CheckedListner());
 
-        switchperiod6=(Switch)findViewById(R.id.switch_6period);
+        Switch switchperiod6 = (Switch) findViewById(R.id.switch_6period);
         switchperiod6.setChecked(tableSettingsEntity.getPeriod6());
         switchperiod6.setOnCheckedChangeListener(new CheckedListner());
 
-        switchperiod7=(Switch)findViewById(R.id.switch_7period);
+        Switch switchperiod7 = (Switch) findViewById(R.id.switch_7period);
         switchperiod7.setChecked(tableSettingsEntity.getPeriod7());
         switchperiod7.setOnCheckedChangeListener(new CheckedListner());
 
-        switchperiod8=(Switch)findViewById(R.id.switch_8period);
+        Switch switchperiod8 = (Switch) findViewById(R.id.switch_8period);
         switchperiod8.setChecked(tableSettingsEntity.getPeriod8());
         switchperiod8.setOnCheckedChangeListener(new CheckedListner());
 
-        switchSyllabusLang=(Switch)findViewById(R.id.switch_syllabusLanguage);
+        Switch switchSyllabusLang = (Switch) findViewById(R.id.switch_syllabusLanguage);
         switchSyllabusLang.setChecked(tableSettingsEntity.getSyllabusJapanese());
         switchSyllabusLang.setOnCheckedChangeListener(new CheckedListner());
 
-        switchSettingsLang=(Switch)findViewById(R.id.switch_settingsLanguage);
+        Switch switchSettingsLang = (Switch) findViewById(R.id.switch_settingsLanguage);
         switchSettingsLang.setChecked(tableSettingsEntity.getSettingsJapanese());
         switchSettingsLang.setOnCheckedChangeListener(new CheckedListner());
 
-        switchSlideText=(Switch)findViewById(R.id.switch_slideText);
+        Switch switchSlideText = (Switch) findViewById(R.id.switch_slideText);
         switchSlideText.setChecked(tableSettingsEntity.getTexslide());
         switchSlideText.setOnCheckedChangeListener(new CheckedListner());
 
@@ -521,7 +511,7 @@ public class SettingsForTable extends AppCompatActivity{
         etSettingsFontSize.setText(String.valueOf(tableSettingsEntity.getFontsize()));
 
 
-        btn_ok=(BootstrapButton)findViewById(R.id.settings_bt_ok);
+        BootstrapButton btn_ok = (BootstrapButton) findViewById(R.id.settings_bt_ok);
         btn_ok.setOnClickListener(new ClickL());
 
 

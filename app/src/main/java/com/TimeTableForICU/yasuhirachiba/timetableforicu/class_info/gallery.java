@@ -21,10 +21,10 @@ import java.util.ArrayList;
 
 public class gallery extends AppCompatActivity {
 
-    openHelper helper;
-    SQLiteDatabase db;
+    private openHelper helper;
+    private SQLiteDatabase db;
 
-    db_manipulatorForClassInfo DBmcl;
+    private db_manipulatorForClassInfo DBmcl;
 
 
     private int msy_id;

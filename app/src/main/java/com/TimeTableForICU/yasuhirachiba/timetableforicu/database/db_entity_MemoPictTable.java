@@ -13,8 +13,8 @@ public class db_entity_MemoPictTable implements Serializable {
     private int MemoId=-1;
     private int PictId=-1;
 
-    ArrayList<db_entity_pict> pictList=new ArrayList<db_entity_pict>();
-    ArrayList<db_entity_memo> memoList=new ArrayList<db_entity_memo>();
+    private ArrayList<db_entity_pict> pictList= new ArrayList<>();
+    private ArrayList<db_entity_memo> memoList= new ArrayList<>();
 
 
     public void setMemoId(int MemoId){

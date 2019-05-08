@@ -10,15 +10,15 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
  */
 public class add_data_schedules {
 
-    int number;
-    int schedule;
-    LinearLayout ll;
+    private int number;
+    private int schedule;
+    private LinearLayout ll;
     LinearLayout ll_more;
-    LinearLayout ll_rowOfDateButton;
-    BootstrapButton btn;
-    TextView tvMargin;
+    private LinearLayout ll_rowOfDateButton;
+    private BootstrapButton btn;
+    private TextView tvMargin;
 
-    String btnSchedule;
+    private String btnSchedule;
 
 
 

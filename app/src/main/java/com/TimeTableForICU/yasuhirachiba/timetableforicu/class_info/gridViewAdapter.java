@@ -11,6 +11,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -29,15 +30,15 @@ import java.util.ArrayList;
 /**
  * Created by YasuhiraChiba on 16/08/26.
  */
-public class gridViewAdapter extends ArrayAdapter<db_entity_pict> {
+class gridViewAdapter extends ArrayAdapter<db_entity_pict> {
 
-    private int resourceId;
+    private final int resourceId;
     private class_info_ImageView_TagsEntity tagEntity;
-    private Context mContext;
+    private final Context mContext;
     private ItemClickListener itemClickListener;
     private ItemClickListener itemLongClickListener;
-    private int Date;
-    private int CountDateOrder;
+    private final int Date;
+    private final int CountDateOrder;
 
     public gridViewAdapter(Context context, int resource, ArrayList<db_entity_pict> objects,int date,int countdateorder) {
         super(context, resource, objects);
@@ -56,8 +57,9 @@ public class gridViewAdapter extends ArrayAdapter<db_entity_pict> {
     }
 
 
+    @NonNull
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -152,10 +154,10 @@ public class gridViewAdapter extends ArrayAdapter<db_entity_pict> {
 
 
 
-    Bitmap thumbnail;
+    private Bitmap thumbnail;
 
 
-    public Bitmap getThubmnail(Uri uri){
+    private Bitmap getThubmnail(Uri uri){
 
 
        // Bitmap thumbnail;
@@ -218,7 +220,7 @@ public class gridViewAdapter extends ArrayAdapter<db_entity_pict> {
 
 
 
-    public static boolean isMediaUri(Uri uri) {
+    private static boolean isMediaUri(Uri uri) {
         return "media".equalsIgnoreCase(uri.getAuthority());
     }
 

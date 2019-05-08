@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bootstrapbutton="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -48,14 +47,14 @@
                     android:layout_gravity="left"
                     android:typeface="serif"
                     android:textStyle="bold"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="5dp"
 
                     android:id="@+id/cl_info_memoRow_tvForDate"
 
-                    />
+                    android:layout_marginStart="8dp" />
 
 
 

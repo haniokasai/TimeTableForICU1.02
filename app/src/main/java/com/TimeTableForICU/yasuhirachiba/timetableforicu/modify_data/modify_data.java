@@ -50,6 +50,7 @@ import com.TimeTableForICU.yasuhirachiba.timetableforicu.table_settings_entity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import me.priyesh.chroma.ChromaDialog;
 import me.priyesh.chroma.ColorMode;
@@ -57,62 +58,62 @@ import me.priyesh.chroma.ColorSelectListener;
 
 public class modify_data extends AppCompatActivity {
 
-    openHelper helper;
-    SQLiteDatabase db;
-    db_manipulator DBm;
-    db_manipulatorForClassInfo DBmcl;
+    private openHelper helper;
+    private SQLiteDatabase db;
+    private db_manipulator DBm;
+    private db_manipulatorForClassInfo DBmcl;
 
 
-    EditText et_modify_data_cstitle;
-    EditText et_modify_data_classroom;
-    EditText et_modify_data_teacher;
-    Spinner sp_period;
-    Spinner sp_week;
-    BootstrapButton btn_schedule;
-    BootstrapButton btn_more;
-    BootstrapButton btn_ok;
+    private EditText et_modify_data_cstitle;
+    private EditText et_modify_data_classroom;
+    private EditText et_modify_data_teacher;
+    private Spinner sp_period;
+    private Spinner sp_week;
+    private BootstrapButton btn_schedule;
+    private BootstrapButton btn_more;
+    private BootstrapButton btn_ok;
 
-    Button btnforColorChoice;
-    Button btnforColorChoice_color;
-
-
-    ArrayList<add_data_schedules> schedulesArrayList=new ArrayList<add_data_schedules>();
-    SharedPreferences prefs;
-    Gson gson;
-    table_info_entity tableInfoEntity;
-    table_settings_entity tableSettingsEntity;
+    private Button btnforColorChoice;
+    private Button btnforColorChoice_color;
 
 
-    ExpandableHeightGridView gridView;
-    add_data_gridViewAdapter gridViewAdapter;
+    private final ArrayList<add_data_schedules> schedulesArrayList= new ArrayList<>();
+    private SharedPreferences prefs;
+    private Gson gson;
+    private table_info_entity tableInfoEntity;
+    private table_settings_entity tableSettingsEntity;
 
-    LinearLayout ll_more;
-    LinearLayout ll_more_main;
+
+    private ExpandableHeightGridView gridView;
+    private add_data_gridViewAdapter gridViewAdapter;
+
+    private LinearLayout ll_more;
+    private LinearLayout ll_more_main;
 
 
-    ArrayList<db_entity_forAddDataModifyData_ListView> ListForListView=new ArrayList<>();
+    private ArrayList<db_entity_forAddDataModifyData_ListView> ListForListView=new ArrayList<>();
 
     View layout;
 
-    ArrayList<db_entity_sy> entity=new ArrayList<db_entity_sy>();
+    ArrayList<db_entity_sy> entity= new ArrayList<>();
 
-    String formerScheduleString="";
+    private String formerScheduleString="";
 
-    int msy_id=-1;
-    int cs_info_id=-1;
+    private int msy_id=-1;
+    private int cs_info_id=-1;
 
-    int count=0;
+    private int count=0;
 
    /* String schedule_string="";*/
 
     String bgColor="";
-    String colorname="#ffffff";
+    private String colorname="#ffffff";
 
-    DisplayMetrics dm = Resources.getSystem().getDisplayMetrics();
-    float width=dm.widthPixels;
+    private final DisplayMetrics dm = Resources.getSystem().getDisplayMetrics();
+    private final float width=dm.widthPixels;
     float height=dm.heightPixels;
 
-    boolean scroll=true;
+    private boolean scroll=true;
     boolean isMoreClicked =false;
 
 
@@ -294,7 +295,7 @@ public class modify_data extends AppCompatActivity {
 
 
 
-    public class add_dataClickL implements View.OnClickListener{
+    class add_dataClickL implements View.OnClickListener{
 
 
         @Override
@@ -405,7 +406,7 @@ public class modify_data extends AppCompatActivity {
                     if(schedulesArrayList.size()!=0){
                         btn_ok.setEnabled(false);
 
-                        ArrayList<Integer> schedule_list=new ArrayList<Integer>();
+                        ArrayList<Integer> schedule_list= new ArrayList<>();
                         for(add_data_schedules temporaly:schedulesArrayList){
                             schedule_list.add(temporaly.getSchedule());
                         }
@@ -416,7 +417,7 @@ public class modify_data extends AppCompatActivity {
 
 
 
-                        ArrayList<Integer> deletedPeriod=new ArrayList<Integer>();
+                        ArrayList<Integer> deletedPeriod= new ArrayList<>();
                         deletedPeriod=searchDeletedPeriod(former_schedule_list,schedule_list);
                         for (int deletedId:deletedPeriod){                      //リストアップした時間のtable1の項目を削除
                             DBm.db_table1_initialize(String.valueOf(deletedId));
@@ -665,16 +666,16 @@ public class modify_data extends AppCompatActivity {
 
 
 
-    public ArrayList<Integer> searchDeletedPeriod(ArrayList<Integer> former_schedule_list,ArrayList<Integer> schedule_list) {
+    private ArrayList<Integer> searchDeletedPeriod(ArrayList<Integer> former_schedule_list, ArrayList<Integer> schedule_list) {
 
-        ArrayList<Integer> deletedPeriod = new ArrayList<Integer>();  //変更前と変更後の時間のリストを比較して、変更後に無いものをリストアップ
+        ArrayList<Integer> deletedPeriod = new ArrayList<>();  //変更前と変更後の時間のリストを比較して、変更後に無いものをリストアップ
 
         for (int before = 0; before < former_schedule_list.size(); before++) {
             for (int after = 0; after < schedule_list.size(); after++) {
-                if ((former_schedule_list.get(before) != schedule_list.get(after)) && (after == schedule_list.size() - 1)) {
+                if ((!Objects.equals(former_schedule_list.get(before), schedule_list.get(after))) && (after == schedule_list.size() - 1)) {
                     deletedPeriod.add(former_schedule_list.get(before));
                     break;
-                } else if (former_schedule_list.get(before) == schedule_list.get(after)) {
+                } else if (Objects.equals(former_schedule_list.get(before), schedule_list.get(after))) {
                     break;
                 }
             }

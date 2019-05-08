@@ -6,7 +6,7 @@ import android.widget.TextView;
 /**
  * Created by YasuhiraChiba on 16/08/31.
  */
-public class AjustTextSize {
+class AjustTextSize {
 
 
 

@@ -54,22 +54,22 @@ import java.util.Date;
 
 public class class_info extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView;
     boolean loading=true;
 
-    openHelper helper;
-    SQLiteDatabase db;
-    db_manipulator DBm;
-    db_manipulatorForClassInfo DBmcl;
-    int msy_id;
-    int cs_info_id;
+    private openHelper helper;
+    private SQLiteDatabase db;
+    private db_manipulator DBm;
+    private db_manipulatorForClassInfo DBmcl;
+    private int msy_id;
+    private int cs_info_id;
 
-    db_entity_mysy entity_mysy;
+    private db_entity_mysy entity_mysy;
     db_entity_MemoPictTable entity_Pict;
 
-    String schedule_string;
+    private String schedule_string;
     String date="123";
-    ArrayList<db_entity_MemoPictTable> entity_memoPictTableList;
+    private ArrayList<db_entity_MemoPictTable> entity_memoPictTableList;
     ArrayList<db_entity_MemoPictTable> memopictTmpList;
 
     private Uri m_uri;
@@ -165,7 +165,7 @@ public class class_info extends AppCompatActivity implements DatePickerDialog.On
 
 
 
-    public void setLayouts() {
+    private void setLayouts() {
         entity_memoPictTableList =DBmcl.db_cl_MemoPictTable_showByMySyllabusId(msy_id);
 
         Collections.sort(entity_memoPictTableList, new MemoPictTableComparator());
@@ -442,7 +442,7 @@ public class class_info extends AppCompatActivity implements DatePickerDialog.On
 
 
 
-    public void addMemo(int date){
+    private void addMemo(int date){
 
         String d;
         if(date==-1){
@@ -496,7 +496,7 @@ public class class_info extends AppCompatActivity implements DatePickerDialog.On
     }
 
 
-    public void editMemo(int id){
+    private void editMemo(int id){
 
 
         final int Id=id;
@@ -521,7 +521,7 @@ public class class_info extends AppCompatActivity implements DatePickerDialog.On
 
                 int DateExistence=DBmcl.db_cl_DataTableCheckRecordExistence(msy_id,Date);
                 if(DateExistence==0){
-                    DBmcl.db_cl_insertDataTable(msy_id,Integer.valueOf(Date));
+                    DBmcl.db_cl_insertDataTable(msy_id, Date);
                 }
                 DBmcl.db_cl_updateMemoTable(msy_id,Id,Date,et.getText().toString());
                 setLayouts();
@@ -539,7 +539,7 @@ public class class_info extends AppCompatActivity implements DatePickerDialog.On
 
 
     }
-    public void deleteMemo(int id){
+    private void deleteMemo(int id){
 
         DBmcl.db_cl_deletMemoRecordById(msy_id,id);
         setLayouts();
@@ -605,7 +605,7 @@ public class class_info extends AppCompatActivity implements DatePickerDialog.On
 
 
 
-    public void launchChooser(int date) {
+    private void launchChooser(int date) {
         CameraDate =date;
         if(CameraDate==-1){
             Date da = new Date();
@@ -675,12 +675,12 @@ public class class_info extends AppCompatActivity implements DatePickerDialog.On
             );
 
 
-            int DateExistence=DBmcl.db_cl_DataTableCheckRecordExistence(msy_id,Integer.valueOf(CameraDate));
+            int DateExistence=DBmcl.db_cl_DataTableCheckRecordExistence(msy_id, CameraDate);
             if(DateExistence==0){
-                DBmcl.db_cl_insertDataTable(msy_id,Integer.valueOf(CameraDate));
+                DBmcl.db_cl_insertDataTable(msy_id, CameraDate);
             }
 
-            DBmcl.db_cl_insertPictTable(msy_id,Integer.valueOf(CameraDate), String.valueOf(resultUri),"testTag1_4",null,null,null,null);
+            DBmcl.db_cl_insertPictTable(msy_id, CameraDate, String.valueOf(resultUri),"testTag1_4",null,null,null,null);
 
 
             setLayouts();

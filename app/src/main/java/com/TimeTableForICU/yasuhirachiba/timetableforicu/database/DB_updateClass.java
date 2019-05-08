@@ -1,7 +1,6 @@
 package com.TimeTableForICU.yasuhirachiba.timetableforicu.database;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -79,13 +78,13 @@ public class DB_updateClass {
        // private static final String DB_NAME = "db5";
         private static final int DB_VERSION = 1;
 
-        private Context context;
-        private File dbPath;
+        private final Context context;
+        private final File dbPath;
         private boolean createDatabase = false;
 
-        private String dbFileName;
+        private final String dbFileName;
 
-        public UpdateOpenHelper(Context context,String dbName,String dbFileName) {
+        UpdateOpenHelper(Context context, String dbName, String dbFileName) {
             super(context, dbName, null, DB_VERSION);
             this.context = context;
             this.dbPath = context.getDatabasePath(dbName);
@@ -98,7 +97,7 @@ public class DB_updateClass {
             if (createDatabase) {
                 try {
                     database = copyDatabase(database);
-                } catch (IOException e) {
+                } catch (IOException ignored) {
                 }
             }
             return database;
@@ -110,7 +109,7 @@ public class DB_updateClass {
             if (createDatabase) {
                 try {
                     database = copyDatabase(database);
-                } catch (IOException e) {
+                } catch (IOException ignored) {
                 }
             }
             return database;
@@ -144,7 +143,7 @@ public class DB_updateClass {
         }
 
         // CopyUtilsからのコピペ
-        private int copy(InputStream input, OutputStream output) throws IOException {
+        private void copy(InputStream input, OutputStream output) throws IOException {
             byte[] buffer = new byte[1024 * 4];
             int count = 0;
             int n = 0;
@@ -152,7 +151,6 @@ public class DB_updateClass {
                 output.write(buffer, 0, n);
                 count += n;
             }
-            return count;
         }
     }
 }

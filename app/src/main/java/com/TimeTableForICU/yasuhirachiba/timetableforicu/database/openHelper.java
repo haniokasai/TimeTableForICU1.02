@@ -18,8 +18,8 @@ public class openHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "db5";
     private static final int DB_VERSION = 1;
 
-    private Context context;
-    private File dbPath;
+    private final Context context;
+    private final File dbPath;
     private boolean createDatabase = false;
 
     public openHelper(Context context) {
@@ -34,7 +34,7 @@ public class openHelper extends SQLiteOpenHelper {
         if (createDatabase) {
             try {
                 database = copyDatabase(database);
-            } catch (IOException e) {
+            } catch (IOException ignored) {
             }
         }
         return database;
@@ -46,7 +46,7 @@ public class openHelper extends SQLiteOpenHelper {
         if (createDatabase) {
             try {
                 database = copyDatabase(database);
-            } catch (IOException e) {
+            } catch (IOException ignored) {
             }
         }
         return database;
@@ -80,7 +80,7 @@ public class openHelper extends SQLiteOpenHelper {
     }
 
     // CopyUtilsからのコピペ
-    private static int copy(InputStream input, OutputStream output) throws IOException {
+    private static void copy(InputStream input, OutputStream output) throws IOException {
         byte[] buffer = new byte[1024 * 4];
         int count = 0;
         int n = 0;
@@ -88,7 +88,6 @@ public class openHelper extends SQLiteOpenHelper {
             output.write(buffer, 0, n);
             count += n;
         }
-        return count;
     }
 }
 
