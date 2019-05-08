@@ -43,6 +43,7 @@
     <string-array name="year">
 
         <item>2016</item>
+        <item>2017</item>
 
     </string-array>
 
@@ -76,6 +77,7 @@
     <string name="setting_for_table_slideText">bottom text</string>
     <string name="add_data_data_goneOrNot">The edited content will be deleated. Is it OK?</string>
     <string name="add_data_class_alredyExists_OverwriteOrNot">  </string>
+    <string name="title_activity_user_policy" translatable="false">User_policy</string>
 
 
 </resources>

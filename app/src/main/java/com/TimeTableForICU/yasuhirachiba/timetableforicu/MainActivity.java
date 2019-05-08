@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,9 +35,11 @@ import android.widget.TextView;
 
 import com.TimeTableForICU.yasuhirachiba.timetableforicu.add_data.add_data;
 import com.TimeTableForICU.yasuhirachiba.timetableforicu.class_info.class_info;
+import com.TimeTableForICU.yasuhirachiba.timetableforicu.database.DB_updateClass;
 import com.TimeTableForICU.yasuhirachiba.timetableforicu.database.db_entity;
 import com.TimeTableForICU.yasuhirachiba.timetableforicu.database.db_manipulator;
 import com.TimeTableForICU.yasuhirachiba.timetableforicu.database.openHelper;
+import com.TimeTableForICU.yasuhirachiba.timetableforicu.user_policy.User_policy;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -89,7 +92,29 @@ public class MainActivity extends AppCompatActivity
         toolbar.setBackgroundColor(colorId);
 
 
-      /*  DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+            }
+        };
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+
+        // ドロワー開くボタン(三本線)を非表示
+        toggle.setDrawerIndicatorEnabled(true);
+
+
+/*
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -249,6 +274,8 @@ public class MainActivity extends AppCompatActivity
         }
 
 
+
+
     }
     @Override
     protected void onStart(){
@@ -261,10 +288,12 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-
-
-
-
+        if(defaultSharedPreferences.getBoolean("syllabus2017update",true)){
+            System.out.println("test init called ");
+            if (DB_updateClass.insert2017syllabus(this)){
+                defaultSharedPreferences.edit().putBoolean("syllabus2017update",false).apply();
+            }
+        }
     }
     @Override
     protected void onStop(){
@@ -358,6 +387,10 @@ public class MainActivity extends AppCompatActivity
             startActivityForResult(it,REQUEST_CODE_FOR_SETTINGS_TABLE);
 
         }
+        else if(id == R.id.nav_userPolicy){
+            Intent it = new Intent(getApplication(), User_policy.class);
+            startActivityForResult(it,REQUEST_CODE_FOR_SETTINGS_TABLE);
+        }
 
 
 
@@ -391,6 +424,11 @@ public class MainActivity extends AppCompatActivity
 
 
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState){
+        super.onPostCreate(savedInstanceState);
+
+    }
 
 
 

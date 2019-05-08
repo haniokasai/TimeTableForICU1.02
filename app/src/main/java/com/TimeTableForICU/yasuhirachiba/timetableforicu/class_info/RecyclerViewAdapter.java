@@ -299,47 +299,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public String changeDateFormat(String date){
         String result="";
 
-        if(date.charAt(4)=='0'){
-            result=result+date.charAt(5)+"/";
+        try{
+            if(date.charAt(4)=='0'){
+                result=result+date.charAt(5)+"/";
+            }
+            else{
+                result=result+date.charAt(4)+date.charAt(5)+"/";
+            }
+            if(date.charAt(6)=='0'){
+                result=result+date.charAt(7);
+            }
+            else {
+                result =result+date.charAt(6)+date.charAt(7);
+            }
+            return result;
+        }catch (StringIndexOutOfBoundsException e) {
+            return "2000";
         }
-        else{
-            result=result+date.charAt(4)+date.charAt(5)+"/";
-        }
-        if(date.charAt(6)=='0'){
-            result=result+date.charAt(7);
-        }
-        else {
-            result =result+date.charAt(6)+date.charAt(7);
-        }
-
-
-        return result;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
