@@ -3,6 +3,7 @@ package com.TimeTableForICU.yasuhirachiba.timetableforicu.add_data;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.StringTokenizer;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by YasuhiraChiba on 16/08/23.
@@ -13,15 +14,19 @@ public class anyalise_schedule_string {
 
 
         //(1)StringTokenizerオブジェクトの生成
-        StringTokenizer result = new StringTokenizer(schedule_string, " ");
+        try {
+            StringTokenizer result = new StringTokenizer(schedule_string, " ");
 
-        if (Objects.equals(schedule_string, "0")) {
+            if (Objects.equals(schedule_string, "0")) {
 
-        }
-        else {
-            while (result.hasMoreTokens()) {
-                list.add(Integer.valueOf(result.nextToken()));
+            } else {
+                while (result.hasMoreTokens()) {
+                    list.add(Integer.valueOf(result.nextToken()));
+                }
             }
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return list;
     }

@@ -18,7 +18,7 @@ public class DB_updateClass {
 
     static public boolean insert2017syllabus(Context context){
         try {
-            UpdateOpenHelper helper = new UpdateOpenHelper(context, "syllabus2017", "syllabus2017.db");
+            UpdateOpenHelper helper = new UpdateOpenHelper(context, "syllabus2019", "syllabus2019.db");
             SQLiteDatabase dbSub = helper.getReadableDatabase();
 
             openHelper mainHelper = new openHelper(context);
@@ -28,22 +28,21 @@ public class DB_updateClass {
             System.out.println("open db  success");
 
 
-
-            dbMain.execSQL("DROP TABLE IF EXISTS 'Spring2017'");
+//TODO 試しにやってみる。
+            dbMain.execSQL("DROP TABLE IF EXISTS 'Spring2019'");
             dbMain.execSQL("DROP TABLE IF EXISTS 'Autumn2017'");
             dbMain.execSQL("DROP TABLE IF EXISTS 'Winter2017'");
 
-
-            String subPath = context.getDatabasePath("syllabus2017").toString();
+            String subPath = context.getDatabasePath("syllabus2019").toString();
 
             dbMain.execSQL("ATTACH DATABASE '" + subPath + "' AS tempDb");
 
             dbMain.beginTransaction();
 
 
-            dbMain.execSQL("CREATE TABLE " + "Spring2017" + " AS SELECT * FROM tempDb." + "Spring2017");
-            dbMain.execSQL("CREATE TABLE " + "Autumn2017" + " AS SELECT * FROM tempDb." + "Autumn2017");
-            dbMain.execSQL("CREATE TABLE " + "Winter2017" + " AS SELECT * FROM tempDb." + "Winter2017");
+            dbMain.execSQL("CREATE TABLE " + "Spring2019" + " AS SELECT * FROM tempDb." + "Spring2019");
+            dbMain.execSQL("CREATE TABLE " + "Autumn2019" + " AS SELECT * FROM tempDb." + "Autumn2019");
+            dbMain.execSQL("CREATE TABLE " + "Winter2019" + " AS SELECT * FROM tempDb." + "Winter2019");
 
 
 
