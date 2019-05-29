@@ -30,8 +30,8 @@ public class DB_updateClass {
 
 //TODO 試しにやってみる。
             dbMain.execSQL("DROP TABLE IF EXISTS 'Spring2019'");
-            dbMain.execSQL("DROP TABLE IF EXISTS 'Autumn2017'");
-            dbMain.execSQL("DROP TABLE IF EXISTS 'Winter2017'");
+            dbMain.execSQL("DROP TABLE IF EXISTS 'Autumn2019'");
+            dbMain.execSQL("DROP TABLE IF EXISTS 'Winter2019'");
 
             String subPath = context.getDatabasePath("syllabus2019").toString();
 

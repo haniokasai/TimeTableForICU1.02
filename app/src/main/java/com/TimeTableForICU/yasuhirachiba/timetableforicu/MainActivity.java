@@ -289,12 +289,10 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-       // DB_updateClass.insert2017syllabus(this);
-
-        if(defaultSharedPreferences.getBoolean("syllabus2017update",true)){
+        if(defaultSharedPreferences.getBoolean("syllabus2019update",true)){
             System.out.println("test init called ");
             if (DB_updateClass.insert2017syllabus(this)){
-                defaultSharedPreferences.edit().putBoolean("syllabus2017update",false).apply();
+                defaultSharedPreferences.edit().putBoolean("syllabus2019update",false).apply();
             }
         }
     }
